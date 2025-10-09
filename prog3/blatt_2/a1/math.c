@@ -7,7 +7,7 @@ char input;  // input des users
 
 
 
-void berechne(){
+void berechne(void){
     int result = 0; 
     printf("Ihre Wahl?: \n <S>umme oder <D>ifferenz\n");
     scanf("%c", &input);    

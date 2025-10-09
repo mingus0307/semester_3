@@ -1,5 +1,0 @@
-GCC_ARGS = -std=c99 –pedantic-errors -Wall -Wstrict-prototypes
-OBJ = main.o math.o
-
-main : $(OBJ)
-	gcc $(GCC_ARGS) main -o $(OBJ)
