@@ -6,7 +6,7 @@ Dieses Repository enthält Lösungen und Unterlagen für meine Uni-Module, damit
 
 ## Enthaltene Module
 
-- **DBS** – Datenbanksysteme  
+- **DBS** – Datenbanksysteme 2
 - **BSN** – Betriebssysteme / Netzwerke  
 - **PROG3** – Programmierung 3
 
