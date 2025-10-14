@@ -1,3 +1,5 @@
 wenn ich das mache kommt es zu einem Problem, beim Linken wegen multipler Definitionen. 
 Jede C datei bekommt quasi eine einzelne Implementierung der Funktion anstatt sich auf die gleiche Quelle zu 
 beziehen. 
+
+c) ich würde es in eine config.h packen und die dann in alle header includen as easy as that. 
