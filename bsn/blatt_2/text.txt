@@ -1,0 +1,10 @@
+3. 
+a) 
+find listet die Datein des angegebenen pfads auf. 
+-P ignoriert alle softlinks
+-H nimmt nur den command line softlink 
+-L nimm jeden Softlink der die noch begegnet 
+
+b) 
+
+

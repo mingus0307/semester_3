@@ -18,3 +18,4 @@ differenz.o : differenz.c input.h
 
 input.o : input.c 
 	gcc $(GCC_ARGS) -c input.c 
+
