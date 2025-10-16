@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 double matrix_elem_sum(double matrix[], int n, int lengths[]) {
-  Ihre Aufgabe
+  
 }
 
 int main(void) {
