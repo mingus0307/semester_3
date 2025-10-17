@@ -21,12 +21,6 @@ struct int20 create20(char a[]){
 
     return fin;  
 }
-
-
-
-
-
-
 int char_as_int(char c){
     // nice to know: das klappt nicht grundsätzlich as char to int, man könnte es einfach
     return c - '0'; 
@@ -39,8 +33,33 @@ int int_as_char(int c){
 
 struct int20 add20(struct int20 a, struct int20 b){
     struct int20 fin; 
-    size_t len_a = sizeof(a.arr) / sizeof(a.arr[0]);
-    size_t len_b = sizeof(b.arr) / sizeof(a.arr[0]); 
+     int übertrag = 0;
+
+    for (int i = 19; i >= 0; i--){
+       
+        // wir nehmen die letzten zwei chars der Zahlen
+        int a_last = char_as_int(a.arr[i]);
+        int b_last = char_as_int(b.arr[i]);
+
+        // wenn übertrag besteht, addieren wir ihn auf a 
+        if (übertrag > 0){
+            a_last += übertrag;
+            übertrag = 0; // wir setzen den Übertrag zurück
+        }
+
+        // addieren der einzelnen aktuellen Ziffern
+        int sum = a_last + b_last;
+
+        // übertrag check 
+        if (sum >= 10){
+            übertrag = 1;
+            sum  = sum % 10; // wir nehmen den Übertrag
+        }
+        // schreiben wir in den letzten char des Ergebnisses
+        fin.arr[i] = int_as_char(sum);
+    }
+
+    return fin;
 
 }
 
@@ -66,4 +85,5 @@ int main(void){
     print20(a); printf("\n");
     print20(b); printf("\n");
     print20(sum); printf("\n");
+    printf("letzter Eintrag: %c\n", a.arr[19]);
 }
