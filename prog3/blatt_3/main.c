@@ -85,5 +85,5 @@ int main(void){
     print20(a); printf("\n");
     print20(b); printf("\n");
     print20(sum); printf("\n");
-    printf("letzter Eintrag: %c\n", a.arr[19]);
+    // printf("letzter Eintrag: %c\n", a.arr[19]);
 }
