@@ -22,12 +22,12 @@ struct int20 create20(char a[]){
     return fin;  
 }
 int char_as_int(char c){
-    // nice to know: das klappt nicht grundsätzlich as char to int, man könnte es einfach
+    // nice to know: das klappt nicht grundsätzlich als char to int
     return c - '0'; 
 }
 
 int int_as_char(int c){
-    // nice to know: das klappt nicht grundsätzlich as char to int, man könnte es einfach
+    // das natürlich auch nicht grundsätzlich als int to char
     return c + '0'; 
 }
 
