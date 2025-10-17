@@ -1,0 +1,1 @@
+extern void mystrcat(char dest[], char src[]);

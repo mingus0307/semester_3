@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <mystrcat.h>
+#include "mystrcat.h"
 
 int main(void) {
   char buffer[30];
