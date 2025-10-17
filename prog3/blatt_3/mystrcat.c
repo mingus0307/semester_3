@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <string.h>
-
 void mystrcat(char dest[], char src[]) {
     // ende von dest finden
     int i = 0;  
