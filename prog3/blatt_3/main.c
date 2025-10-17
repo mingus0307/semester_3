@@ -7,12 +7,25 @@ struct int20 {
 
 struct int20 create20(char a[]){
     struct int20 fin;
+    size_t len_a = strlen(a);
 
-    for (int i = 0; i < (sizeof(a) / sizeof(a[0])); i++){
-        fin.arr[i] = a[i];  
+    // wir füllen das moit 0en auf
+    for (int i = 0; i < 20; i++){
+        fin.arr[i] = '0';  
     }
+
+    // wir kopieren die Zahl ans Ende des Arrays
+    for (int i = 0; i < len_a; i++){
+        fin.arr[20 - len_a + i] = a[i];
+    }
+
     return fin;  
 }
+
+
+
+
+
 
 int char_as_int(char c){
     // nice to know: das klappt nicht grundsätzlich as char to int, man könnte es einfach
@@ -29,32 +42,22 @@ struct int20 add20(struct int20 a, struct int20 b){
     size_t len_a = sizeof(a.arr) / sizeof(a.arr[0]);
     size_t len_b = sizeof(b.arr) / sizeof(a.arr[0]); 
 
-    // an letzte stelle gehen und addieren 
+}
 
-    for (int i = 1; i < len_b ; i++){
-        int a_as_int = char_as_int(a.arr[len_a-i]); 
-        int b_as_int = char_as_int(b.arr[len_b-i]);
+void print20(struct int20 n) {
+    int leading_zero = 1;
 
-        if(( a_as_int + b_as_int ) / 10 > 1){
-            fin.arr[len_a -i -1] = int_as_char(char_as_int(fin.arr[len_a -i -1]) + 1);  
-        } else {
-            fin.arr[len_a-i] = int_as_char(a_as_int + b_as_int);
+    for (int i = 0; i < 20; i++) {
+        if (n.arr[i] != '0') {
+            leading_zero = 0;
         }
-    } 
-
-    // schauen ob es einen üerhang gibt 
-    // wenn überhang, dann einen an der nächsten stelle beim längeren arr auf rechnen 
-        
-    return fin; 
+        // wenn keine 0en mehr kommen, fang an die chars auszugeben
+        if (!leading_zero) {
+            putchar(n.arr[i]);
+        }
+    }
 }
 
-
-
-void print20(struct int20 a){
-    for (int i = 0; i < ){
-        printf("%c", a.arr[i]);
-    } 
-}
  
 int main(void){
     struct int20 a= create20("12345678901234567890");
