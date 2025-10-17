@@ -14,5 +14,6 @@ void mystrcat(char dest[], char src[]) {
         j++; 
         i++; 
     }
+    // den String noch abschließen
     dest[i] = '\0'; 
 }
