@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 
-struct int20 {
+typedef struct int20 {
     char arr[20]; 
-};
+} int20;
 
 struct int20 create20(char a[]){
     struct int20 fin;
@@ -31,7 +31,7 @@ int int_as_char(int c){
     return c + '0'; 
 }
 
-struct int20 add20(struct int20 a, struct int20 b){
+struct int20 add20(int20 a, int20 b){
     struct int20 fin; 
      int übertrag = 0;
 
@@ -63,7 +63,7 @@ struct int20 add20(struct int20 a, struct int20 b){
 
 }
 
-void print20(struct int20 n) {
+void print20(int20 n) {
     int leading_zero = 1;
 
     for (int i = 0; i < 20; i++) {
@@ -79,9 +79,9 @@ void print20(struct int20 n) {
 
  
 int main(void){
-    struct int20 a= create20("12345678901234567890");
-    struct int20 b= create20("100");
-    struct int20 sum= add20(a, b);
+    int20 a= create20("12345678901234567890");
+    int20 b= create20("100");
+    int20 sum= add20(a, b);
     print20(a); printf("\n");
     print20(b); printf("\n");
     print20(sum); printf("\n");
