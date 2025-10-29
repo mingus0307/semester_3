@@ -43,4 +43,20 @@ t == 0.270
 270 millisekunden 
 
 
+Aufgabe 5) 
+
+a) 
+30 TB = 30.000.000 MB
+
+100mbit/s / 8 = 12.5 mb/s 
+
+30.000.000 / 12. 5 MB/s = 2.400.000 s = 666.67 h = 27.75 tage
+
+b) 
+Durchsatz = Datenmenge / Zeit 
+            = 30 TB / 72h = 2.4 10^14 bit / 259.200
+            = 926 mbit/ s
+
+
+
 
