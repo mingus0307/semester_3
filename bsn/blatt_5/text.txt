@@ -33,7 +33,14 @@ Er ist die Grundlage aller modernen Netzwerke (Internet, LAN, WLAN), und daher d
 
 
 Aufgabe 4) 
+einmal hoch,einmal runter = 2 * 40k = 80km
 
+v = t / s
+t = s/v 
+t = 80k km / 300k km/s 
+t = 0.266
+t == 0.270 
+270 millisekunden 
 
 
 
