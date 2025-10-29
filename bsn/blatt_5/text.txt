@@ -1,0 +1,17 @@
+Aufgabe 3) 
+Das ISO/OSI-Referenzmodell ist ein theoretisches, 
+normiertes Schichtenmodell mit 7 Schichten, das zur Beschreibung von Netzwerken dient.
+Es definiert klare, idealisierte Funktionen und Schnittstellen zwischen den Schichten, 
+wird aber in der Praxis so nicht vollständig umgesetzt.
+
+
+Der IP-Stack (auch TCP/IP-Modell) dagegen ist das praktisch genutzte Modell der Internetkommunikation.
+Er hat nur 4 (manchmal 5) Schichten, die mehrere OSI-Schichten zusammenfassen:
+
+IP-Stack (TCP/IP)	    Entsprechung im OSI-Modell	        Beispielprotokolle
+Anwendungsschicht	    Anwendung + Darstellung + Sitzung	HTTP, FTP, DNS
+Transportschicht	    Transportschicht	                TCP, UDP
+Internetschicht	        Vermittlungsschicht	                IP, ICMP
+Netzzugangsschicht	    Sicherung + Bitübertragung	        Ethernet, WLAN
+
+
