@@ -1,4 +1,5 @@
 Aufgabe 3) 
+a) 
 Das ISO/OSI-Referenzmodell ist ein theoretisches, 
 normiertes Schichtenmodell mit 7 Schichten, das zur Beschreibung von Netzwerken dient.
 Es definiert klare, idealisierte Funktionen und Schnittstellen zwischen den Schichten, 
@@ -13,5 +14,26 @@ Anwendungsschicht	    Anwendung + Darstellung + Sitzung	HTTP, FTP, DNS
 Transportschicht	    Transportschicht	                TCP, UDP
 Internetschicht	        Vermittlungsschicht	                IP, ICMP
 Netzzugangsschicht	    Sicherung + Bitübertragung	        Ethernet, WLAN
+
+
+b) Vorteile, den IP-Stack zu betrachten
+
+Praxisnähe:
+Der IP-Stack bildet die tatsächliche Struktur des Internets ab. Er ist nicht nur Theorie, sondern beschreibt, wie Netzwerke wirklich funktionieren.
+
+Einfachheit:
+Mit nur 4–5 Schichten ist er übersichtlicher und leichter verständlich als das 7-Schichten-OSI-Modell.
+
+Implementierungsbezug:
+Der IP-Stack bezieht sich direkt auf reale Protokolle wie TCP, IP, UDP, HTTP etc. — also das, womit man in der IT tatsächlich arbeitet.
+
+Kompatibilität und Standardisierung:
+Er ist die Grundlage aller modernen Netzwerke (Internet, LAN, WLAN), und daher de facto Standard.
+
+
+
+Aufgabe 4) 
+
+
 
 
