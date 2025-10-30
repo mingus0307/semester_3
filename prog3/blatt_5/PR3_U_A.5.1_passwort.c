@@ -19,7 +19,7 @@ int main(void) {
     printf("Bitte Passwort fuer den Hochsicherheitsbereich eingeben:\n");
 
     /* read all including spaces and tabs to the end of the line */
-    scanf("%[^\n]", eingabe);
+    scanf("%32s[^\n]", eingabe);
 
     if (!strncmp(eingabe, passwort, strlen(passwort))) {
       printf("Passwort korrekt - Willkommen im Hochsicherheitsbereich!\n");
@@ -29,3 +29,9 @@ int main(void) {
       return -1;
     }
 } // Bla                             Bla
+// Der Stack läuft quasi über, denn wir sprengen den vorgegebenen Rahmen der für unseren Input vorgesehen ist. 
+// Dadurch überschreiben wir das tatsächliche Passwort und vergleichen es mit unserem eigenen Input 
+// -> radikale Sicherheitslücke 
+
+
+// Fixen tun wir das über einen Width parameter in scanf() der exakt bestimmt wie viel eingelesen werden kann
