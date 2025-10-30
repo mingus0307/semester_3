@@ -3,8 +3,9 @@
 #include <string.h>
 
 int main(void) {
-    char passwort[32] = "GeHeIm";  /* Dem Programmbenutzer unbekannt */
     char eingabe[32] = "";
+    char passwort[32] = "GeHeIm";  /* Dem Programmbenutzer unbekannt */
+    
 
     /* Ggf. muessen Sie die Reihenfolge der beiden vorstehenden 
        Array-Definitionen umkehren, um den unten beschriebenen Effekt
@@ -27,4 +28,4 @@ int main(void) {
       printf("Passwort falsch - Zugang verweigert!\n");
       return -1;
     }
-}
+} // Bla                             Bla
