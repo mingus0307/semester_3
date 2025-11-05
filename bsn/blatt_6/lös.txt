@@ -1,2 +1,28 @@
 3) 
 
+Länge d = 100m 
+s = 200.000km/s
+
+t = d / s
+t = 0.1 / 200.000km/s
+
+t = 0.05ms x 2 // RRT 
+  = 0.1ms 
+
+b) 
+
+L = Menge an Daten * RTT 
+  = 1 10^9 / s * (1 * 10^-6)s
+  = 10^3 bit = 1000 bit 
+  = 125 byte 
+
+
+4) 
+
+b) 
+Src: 141.71.30.118, Dst: 62.138.116.25
+Hersteller absender: Apple 
+hersteller empfänger: DELL
+
+Größe: 416byte 
+
