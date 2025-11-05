@@ -25,27 +25,27 @@ void tausche_intPtr(int** pa, int** pb){
 
 int main(void) {
 
-int i = 1; int j = 2;
-printf("i = %d, j = %d\n", i, j); /* Gibt 1 und 2 aus */
-tausche_int(&i, &j);
-printf("i = %d, j = %d\n", i, j); /* Gibt 2 und 1 aus */
+    int i = 1; int j = 2;
+    printf("i = %d, j = %d\n", i, j); /* Gibt 1 und 2 aus */
+    tausche_int(&i, &j);
+    printf("i = %d, j = %d\n", i, j); /* Gibt 2 und 1 aus */
 
-// test für pointer-tausch 
+    // test für pointer-tausch 
 
-int* a; int* b;
+    int* a; int* b;
 
-int temp = 6; 
-int foo = 9; 
+    int temp = 6; 
+    int foo = 9; 
 
-a = &temp; 
-b = &foo; 
+    a = &temp; 
+    b = &foo; 
 
-int** pa = &a; 
-int** pb = &b; 
+    int** pa = &a; 
+    int** pb = &b; 
 
 
-printf("a = %d, b = %d\n", *a, *b);
-tausche_intPtr(pa, pb);
-printf("a = %d, b = %d\n", *a, *b);
-return 0;
+    printf("a = %d, b = %d\n", *a, *b);
+    tausche_intPtr(pa, pb);
+    printf("a = %d, b = %d\n", *a, *b);
+    return 0;
 }
