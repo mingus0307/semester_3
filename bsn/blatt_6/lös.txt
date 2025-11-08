@@ -26,3 +26,11 @@ hersteller empfänger: DELL
 
 Größe: 416byte 
 
+5) 
+
+Das Nutzen eines Switches halbiert ungefähr die Nutzbare Datenraten. 
+Wir erhalten die Rahmen vom Sender über Funk und versenden ihn über funk wieder weiter. Während des Empfangens und sendens
+können wir nichts weiterhin erhalten oder tun, es ist währenddessen gesperrt. 
+
+
+
