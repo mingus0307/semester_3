@@ -1,24 +1,33 @@
-DROP TABLE IF EXISTS Movie; 
-DROP TABLE IF EXISTS Genre;
 DROP TABLE IF EXISTS MovieCharacter;
-DROP TABLE IF EXISTS Person;
 DROP TABLE IF EXISTS MovieGenre;
+DROP TABLE IF EXISTS Genre;
+DROP TABLE IF EXISTS Movie;
+DROP TABLE IF EXISTS Person;
+
+CREATE SEQUENCE movie_id_seq START 1;
+CREATE SEQUENCE person_id_seq START 1;
+CREATE SEQUENCE genre_id_seq START 1;
+CREATE SEQUENCE movchar_id_seq START 1;
+
 
 -- 1:N zu MovieCharacter 
 CREATE TABLE Movie (
-	movie_ID SERIAL PRIMARY KEY, 
+	movie_ID INT DEFAULT nextval('movie_id_seq'),
+	PRIMARY KEY (movie_ID)
 	title VARCHAR(100)  NOT NULL, 
 	year INT  NOT NULL,
 	type VARCHAR(3) NOT NULL 
 );
 -- 1:N zu MovieCharacter 
 CREATE TABLE Person (
-	person_ID SERIAL PRIMARY KEY, 
+	person_ID  INT DEFAULT nextval('person_id_seq'),
+	PRIMARY KEY (person_ID)
 	name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Genre (
-	genre_ID SERIAL PRIMARY KEY, 
+	genre_ID  INT DEFAULT nextval('genre_id_seq'),
+	PRIMARY KEY (genre_ID)
 	genre VARCHAR(100)  NOT NULL 
 );
 
@@ -31,8 +40,9 @@ CREATE TABLE MovieGenre (
 	FOREIGN KEY(movie) REFERENCES Movie(movie_ID)
 );
 
-CREATE TABLE MoviecCharacter (
-	movChar_ID SERIAL PRIMARY KEY, 
+CREATE TABLE MovieCharacter (
+	movChar_ID INT DEFAULT  nextval('movChar_id_seq'),
+	PRIMARY KEY (movChar_ID),
 	character VARCHAR(100)  NOT NULL, 
 	alias VARCHAR(100), 
 	position INT,
