@@ -2,28 +2,42 @@ DROP TABLE IF EXISTS Movie;
 DROP TABLE IF EXISTS Genre;
 DROP TABLE IF EXISTS MovieCharacter;
 DROP TABLE IF EXISTS Person;
+DROP TABLE IF EXISTS MovieGenre;
 
-
+-- 1:N zu MovieCharacter 
 CREATE TABLE Movie (
 	movie_ID SERIAL PRIMARY KEY, 
-	title VARCHAR(100), 
-	year INT,
-	type VARCHAR(3)
+	title VARCHAR(100)  NOT NULL, 
+	year INT  NOT NULL,
+	type VARCHAR(3) NOT NULL 
+);
+-- 1:N zu MovieCharacter 
+CREATE TABLE Person (
+	person_ID SERIAL PRIMARY KEY, 
+	name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Genre (
 	genre_ID SERIAL PRIMARY KEY, 
-	genre VARCHAR(100)
+	genre VARCHAR(100)  NOT NULL 
+);
+
+-- N:M von movie to genre 
+CREATE TABLE MovieGenre (
+	genre INT,
+	movie INT, 
+	PRIMARY KEY(movie, genre),
+	FOREIGN KEY(genre) REFERENCES Genre(genre_ID),
+	FOREIGN KEY(movie) REFERENCES Movie(movie_ID)
 );
 
 CREATE TABLE MoviecCharacter (
 	movChar_ID SERIAL PRIMARY KEY, 
-	character VARCHAR(100), 
+	character VARCHAR(100)  NOT NULL, 
 	alias VARCHAR(100), 
-	position INT
-);
-
-CREATE TABLE Person (
-	person_ID SERIAL PRIMARY KEY, 
-	name VARCHAR(100)
+	position INT,
+	movie INT NOT NULL, 
+	actor INT NOT NULL, 
+	FOREIGN KEY(actor) REFERENCES Person(person_ID),
+	FOREIGN KEY(movie) REFERENCES Movie(movie_ID)
 );
