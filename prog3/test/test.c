@@ -13,6 +13,19 @@ void find(char* strings[], char** max){
     }
 }
 
+char* find_c(char n[] , char c){
+    char* fin; 
+    char* foo = NULL;
+
+    for (fin = n; *fin != '\0'; fin++){
+        if (c == *fin){
+            foo = fin; 
+        }
+    }
+
+    return foo; 
+}
+
 int main(void){
     char * strings[] = {"abc","rst", "def", "rrr", NULL}; 
     char* max; 

@@ -1,0 +1,29 @@
+DROP TABLE IF EXISTS Movie; 
+DROP TABLE IF EXISTS Genre;
+DROP TABLE IF EXISTS MovieCharacter;
+DROP TABLE IF EXISTS Person;
+
+
+CREATE TABLE Movie (
+	movie_ID SERIAL PRIMARY KEY, 
+	title VARCHAR(100), 
+	year INT,
+	type VARCHAR(3)
+);
+
+CREATE TABLE Genre (
+	genre_ID SERIAL PRIMARY KEY, 
+	genre VARCHAR(100)
+);
+
+CREATE TABLE MoviecCharacter (
+	movChar_ID SERIAL PRIMARY KEY, 
+	character VARCHAR(100), 
+	alias VARCHAR(100), 
+	position INT
+);
+
+CREATE TABLE Person (
+	person_ID SERIAL PRIMARY KEY, 
+	name VARCHAR(100)
+);
