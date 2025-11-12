@@ -3,8 +3,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void testInsert() throws Exception {
         boolean ok = false;
