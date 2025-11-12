@@ -1,6 +1,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -46,5 +47,16 @@ public class Main {
     public static void main(String[] args) throws Exception {
         DBConnection.open();
         testInsert();
+
+        Movie found = MovieFactory.findById(1);
+        if (found != null) {
+            System.out.println(found.getTitle() + " (" + found.getYear() + ")");
+        }
+
+        List<Movie> list = MovieFactory.findByTitle("Komoedie");
+        for (Movie m : list) {
+            System.out.println("Treffer: " + m.getTitle());
+        }
+
     }
 }
