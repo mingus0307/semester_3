@@ -1,2 +1,2 @@
 /bsn/**/*.txt
-/dbs2/**/*.properties
+/dbs2/**/db.properties
