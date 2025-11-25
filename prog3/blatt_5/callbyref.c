@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 void free0(char** p){
+    free(*p); 
     *p = NULL;
 } // call by reference bedeutet, dass wir den speicher direkt addresieren und nicht den Wert als copy übergeben 
 
