@@ -11,10 +11,9 @@ void times(int  n, void (*fn)(void)){
 } 
 
 int main(void){
-    int foo = 3; 
-    void (*fn)(void) = print; 
+    
 
-    times(foo, print); 
+    times(3, print); 
     
     return 0; 
 }
