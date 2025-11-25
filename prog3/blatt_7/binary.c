@@ -15,16 +15,29 @@ typedef struct  angestellter{
 }Angestellter; 
 
 void binaer_speichern(Angestellter arr[],int anz){
-    FILE* fp = fopen("angestellte.dat" ,"rb"); 
+    FILE* fp = fopen("angestellte.dat" ,"wb"); 
     if (!fp) {
         perror("fopen");
         return; 
     }
 
     size_t written = fwrite(arr, sizeof(Angestellter), anz, fp); 
+    fclose(fp);
 }
 
 void binaer_laden_und_ausgeben(void){
+    FILE* fp = fopen("angestellte.dat", "rb"); 
+    if (!fp){perror("fopen");}; 
+
+    Angestellter* arr = malloc(sizeof(Angestellter) * 5); 
+    size_t read = fread(arr, sizeof(Angestellter), 5, fp);
+
+    for (int i = 0; i < 5; i++){
+        
+        printf("name: %s\ngehalt: %2.f\nperso: %d\n\n", arr[i].name, arr[i].gehalt, arr[i].personalnummer); 
+    }
+
+    fclose(fp); 
 
 }
 
@@ -47,6 +60,7 @@ int main(void){
     }
 
     binaer_speichern(arr, 5);
+    binaer_laden_und_ausgeben(); 
 
 
 
