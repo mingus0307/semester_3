@@ -6,6 +6,28 @@ struct knoten {
     struct knoten* next;
 };
 
+
+void durchlaufen(struct knoten* kopf) {
+    struct knoten* laufzeiger;
+    laufzeiger = kopf;
+    while (laufzeiger!=NULL) {
+        printf("%d ",laufzeiger->wert);
+        laufzeiger = laufzeiger->next;
+    }
+    printf("\n");
+}
+
+
+
+struct knoten* suchen(struct knoten* kopf, int gesuchter_wert) {
+    struct knoten* laufzeiger;
+    laufzeiger = kopf;
+    while ((laufzeiger!=NULL)&&(laufzeiger->wert!=gesuchter_wert)) {
+        laufzeiger = laufzeiger->next;
+    }
+    return laufzeiger;
+}
+
 /* Liefert -1 im Fehlerfall, sonst 0 */
 int einfuegen_kopf(struct knoten* *kopfref, struct knoten* *enderef, struct knoten* einzufueg){
     if ((einzufueg==NULL)||(kopfref==NULL)||(enderef==NULL)) return -1;
@@ -47,10 +69,77 @@ int einfuegen_ende(struct knoten* *kopfref, struct knoten* *enderef, struct knot
 }
 
 /* Liefert den entfernten Knoten oder NULL */
-struct knoten* entfernen_kopf(struct knoten* *kopfref, struct knoten* *enderef);
+struct knoten* entfernen_kopf(struct knoten* *kopfref, struct knoten* *enderef){
+    if ((kopfref==NULL)||(*kopfref==NULL)||(enderef==NULL)) return NULL;
+
+    struct knoten* alt = *kopfref; 
+    *kopfref = alt->next; 
+
+    if (*kopfref == NULL){
+        *enderef = *kopfref; 
+    }
+    
+
+    return alt; 
+}
 
 /* Liefert den entfernten Knoten oder NULL */
-struct knoten* entfernen_ende(struct knoten* *kopfref, struct knoten* *enderef);
+struct knoten* entfernen_ende(struct knoten* *kopfref, struct knoten* *enderef){
+    if ((kopfref==NULL)||(enderef==NULL)||(*kopfref==NULL)) return NULL;
+
+    struct knoten* alt = *enderef; 
+    struct knoten* vorletzter = *kopfref; 
+
+    if(*kopfref == *enderef){
+        *kopfref = NULL; 
+        *enderef = NULL; 
+        return alt; 
+
+    }
+
+    while(vorletzter->next != *enderef){
+        vorletzter = vorletzter->next; 
+    }
+
+    *enderef = vorletzter; 
+    vorletzter->next = NULL; 
+
+    return alt; 
+
+}
 
 /* Liefert den entfernten Knoten oder NULL */
-struct knoten* entfernen(struct knoten* *kopfref, struct knoten* *enderef, struct knoten* auszufueg);
+struct knoten* entfernen(struct knoten* *kopfref, struct knoten* *enderef, struct knoten* auszufueg){
+    if ((auszufueg==NULL)||(kopfref==NULL)||(*kopfref==NULL)) return NULL;
+
+    // 1. FALL liste hat ein element 
+
+    if (*enderef == *kopfref && auszufueg == *kopfref){
+        // weil dann gibt es ja nur ein Glied was entfernt werden kann 
+        *kopfref = NULL; 
+        *enderef = NULL;  
+        return auszufueg; 
+    }
+
+    if(*kopfref == auszufueg){
+        entfernen_kopf(kopfref, enderef); 
+        return auszufueg; 
+    }else if (*enderef == auszufueg) {
+        entfernen_ende(kopfref, enderef); 
+        return auszufueg; 
+    }
+
+    // 3.FALL liste hat mehrere glieder 
+    struct knoten* vor_auszufueg = *kopfref; 
+
+    while(vor_auszufueg->next != auszufueg){
+        if(vor_auszufueg->next == NULL){
+            return NULL; 
+        }
+        vor_auszufueg = vor_auszufueg->next; 
+    }
+
+    vor_auszufueg->next = auszufueg->next; 
+    return auszufueg; 
+
+}
