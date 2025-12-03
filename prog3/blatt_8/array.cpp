@@ -1,5 +1,7 @@
 #include <iostream>
 
+using namespace std; 
+
 int* createArray(int anz){
     int* fin= new int[anz](); 
 
@@ -14,8 +16,8 @@ void releaseArray(int*& a){
 int main(void){
     int* a = createArray(5); 
     a[2] = 42; 
-    std::cout<<a[2]<< '\n'; 
+    cout<<a[2]<< '\n'; 
 
     releaseArray(a);
-    std::cout<<(a == nullptr)<< '\n';  
+    cout<<(a == nullptr)<< '\n';  
 }
