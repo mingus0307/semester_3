@@ -20,7 +20,7 @@ void binaer_speichern(Angestellter arr[],int anz){
         perror("fopen");
         return; 
     }
-
+    
     size_t written = fwrite(arr, sizeof(Angestellter), anz, fp); 
     fclose(fp);
 }
