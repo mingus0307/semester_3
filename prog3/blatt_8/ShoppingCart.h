@@ -11,4 +11,5 @@ class ShoppingCart {
         float getTotalCost(); 
         int getNumberOfItems(); 
         CartItem& getItem(int i);  
+        int* getItemIDs(); 
 }; 

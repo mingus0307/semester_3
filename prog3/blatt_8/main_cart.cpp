@@ -17,7 +17,16 @@ int main(void){
     cart.add(c); 
     cart.add(d); 
 
-    cout << "Anzahl der Items im Einkaufswagen: "<< cart.getNumberOfItems() << endl;
+    int* arr = cart.getItemIDs(); 
+
+    for(int i = 0; i < cart.getNumberOfItems(); i++){
+        cout << "ID: " << arr[i] 
+             << " Name: " << cart.getItem(i).getName() 
+             << '\n' << '\n';   
+    }
+    delete[] arr; 
+
+    cout << "Anzahl der Items im Einkaufswagen: "<< cart.getNumberOfItems() << '\n';
 
     cout << "\nItems im Einkaufswagen:\n";
     for (int i = 0; i < cart.getNumberOfItems(); ++i) {
@@ -27,7 +36,9 @@ int main(void){
              << " €)" << '\n';
     }
 
-    cout << "\nGesamtkosten: " << cart.getTotalCost() << " €" << endl;
+    cout << "\nGesamtkosten: " << cart.getTotalCost() << " €" << '\n';
+
+    
 
     return 0;
 

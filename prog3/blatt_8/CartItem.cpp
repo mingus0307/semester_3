@@ -2,6 +2,17 @@
 
 using namespace std; 
 
+int CartItem::last_id = 0; 
+
+int CartItem::getnNextID(){
+    last_id++; 
+    return last_id; 
+}
+
+int CartItem::getID(){
+    return id; 
+}
+
 int CartItem::getAnzahl(){
     return anz; 
 }
@@ -27,6 +38,7 @@ void CartItem::setName(const string& name){
 }
 
 CartItem::CartItem(const string& name, int anz, float preisProEinheit){
+    id = getnNextID(); 
     this->name = name; 
     this->anz = anz; 
     this->preisProEinheit = preisProEinheit; 

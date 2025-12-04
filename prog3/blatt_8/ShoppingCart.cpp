@@ -27,3 +27,12 @@ CartItem& ShoppingCart::getItem(int anz){
     return vec.at(anz); 
 }
 
+int* ShoppingCart::getItemIDs(){
+    int* ids = new int[this->getNumberOfItems()](); 
+
+    for (int i = 0; i < this->getNumberOfItems(); i++){
+        ids[i] = vec.at(i).getID(); 
+    }
+    return ids; 
+}
+
