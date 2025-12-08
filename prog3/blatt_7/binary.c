@@ -20,7 +20,7 @@ void binaer_speichern(Angestellter arr[],int anz){
         perror("fopen");
         return; 
     }
-    
+    size_t w_anz = fwrite(&anz, sizeof(int), 1, fp); 
     size_t written = fwrite(arr, sizeof(Angestellter), anz, fp); 
     fclose(fp);
 }
@@ -29,8 +29,12 @@ void binaer_laden_und_ausgeben(void){
     FILE* fp = fopen("angestellte.dat", "rb"); 
     if (!fp){perror("fopen");}; 
 
-    Angestellter* arr = malloc(sizeof(Angestellter) * 5); 
-    size_t read = fread(arr, sizeof(Angestellter), 5, fp);
+
+    int anz = 0;  
+    size_t r_anz = fread(&anz, sizeof(int), 1, fp);
+
+    Angestellter* arr = malloc(sizeof(Angestellter) * anz); 
+    size_t read = fread(arr, sizeof(Angestellter), anz, fp);
 
     for (int i = 0; i < 5; i++){
         
