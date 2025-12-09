@@ -16,6 +16,7 @@ int main(void){
     cart.add(b); 
     cart.add(c); 
     cart.add(d); 
+    cart.add(e); 
 
     int* arr = cart.getItemIDs(); 
 
