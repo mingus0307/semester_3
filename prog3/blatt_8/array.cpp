@@ -19,5 +19,5 @@ int main(void){
     cout<<a[2]<< '\n'; 
 
     releaseArray(a);
-    cout<<(a == nullptr)<< '\n';  
+    cout<<(a == nullptr)<< '\n';  // 1 heißt true
 }
