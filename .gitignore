@@ -1,3 +1,5 @@
-/bsn/**/*.txt
+/bsn/**/*
 **/db.properties
+/klausurenphase/*
+
 
