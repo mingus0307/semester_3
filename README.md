@@ -17,5 +17,5 @@ Dieses Repository enthält Lösungen und Unterlagen für meine Uni-Module, damit
 Die Dateien sind zum persönlichen Nachschlagen gedacht. Einfach das Repository klonen:
 
 ```bash
-git clone https://github.com/mingus0307/semester_3.git
+git clone https://github.com/mingus0307/semester_3
 
