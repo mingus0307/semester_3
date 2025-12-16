@@ -6,10 +6,12 @@ class CartItem {
         int anz; 
         float preisProEinheit; 
         static int last_id; 
-        int id;
+        const int id;
         static int getnNextID(); 
     public: 
         CartItem(const std::string& name, int anz, float preisProEinheit);
+        CartItem(const CartItem& c); 
+        CartItem& operator=(const CartItem& c); 
         float getCost(); 
 
         const std::string& getName(); 
