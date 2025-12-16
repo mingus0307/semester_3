@@ -9,7 +9,9 @@ int main(void){
     CartItem b = CartItem("Kekse", 4, 1.59);
     CartItem c = CartItem("Milch", 1, 0.69);
     CartItem d = CartItem("Erdbeermarmelade", 3, 2.19);
-    CartItem e = d; 
+    CartItem e = CartItem("test", 3, 2.0);
+    // jetzt wird der operator overload getriggert
+    e = d; 
 
     ShoppingCart cart = ShoppingCart(); 
     cart.add(a); 
