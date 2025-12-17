@@ -11,8 +11,8 @@ class int20 {
         int20& operator=(const int20& b); 
         int20 operator+(const int20& b);
         int20& operator+=(const int20& b);  
-        bool operator < (const int20& b); 
-        void print(int20& a); 
+        bool operator < (const int20& b) const; 
+        void print(); 
         unsigned char get_digit(int pos) const; 
 
 };

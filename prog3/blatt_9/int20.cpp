@@ -51,12 +51,87 @@ int20& int20::operator+=(const int20& b){
     return *this; 
 }
 
-bool int20::operator<(const int20& b){
-    //return true wenn this an einer stelle von links nach rechts größer ist
-    // andernfalls false
-    //erste Stelle an der der Unterschied passiert ist entscheidend 
+bool int20::operator<(const int20& b) const {
+
+    for(int i = 0; i < 20; i++){
+        if(this->zahl[i] == b.zahl[i]){
+            continue;
+        }
+        if(this->zahl[i] < b.zahl[i]){
+            return true; 
+        }else{
+            return false; 
+        }
+    }
+    return false; 
 }
 
+void  int20::print(){
+
+    for (int i = 0; i < 20; i++){
+        if(this->zahl[i] == '0'){
+            continue;
+        }
+
+        std::cout << this->zahl[i]; 
+    }
+
+    std::cout << std::endl; 
+
+}
+
+int main() {
+
+    std::cout << "=== Konstruktor-Test ===\n";
+    int20 a("123");
+    int20 b("999");
+    int20 c("00000000000000000001");
+
+    a.print(); std::cout << "  (erwartet: 000...123)\n";
+    b.print(); std::cout << "  (erwartet: 000...999)\n";
+    c.print(); std::cout << "  (erwartet: 000...001)\n\n";
+
+    std::cout << "Copy-Konstruktor \n";
+    int20 d(a);
+    d.print(); std::cout << "  (Kopie von a)\n\n";
+
+    std::cout << " Zuweisungsoperator\n";
+    int20 e("0");
+    e = b;
+    e.print(); std::cout << "  (nach e = b)\n\n";
+
+    std::cout << " operator+ \n";
+    int20 sum1 = a + c;
+    a.print(); std::cout << " + ";
+    c.print(); std::cout << " = ";
+    sum1.print(); std::cout << "  (erwartet: 124)\n\n";
+
+    std::cout << " operator+= \n";
+    int20 sum2("500");
+    sum2 += a;
+    sum2.print(); std::cout << "  (500 += 123 → 623)\n\n";
+
+    std::cout << " Übertrag-Test \n";
+    int20 big1("99999999999999999999");
+    int20 big2("1");
+    int20 bigSum = big1 + big2;
+    bigSum.print();
+    std::cout << "  (Überlauf wird ignoriert)\n\n";
+
+    std::cout << " Vergleich operator< \n";
+    std::cout << "a < b ? " << (a < b) << "  (erwartet: 1)\n";
+    std::cout << "b < a ? " << (b < a) << "  (erwartet: 0)\n";
+    std::cout << "a < d ? " << (a < d) << "  (erwartet: 0, gleich)\n\n";
+
+    std::cout << " get_digit-Test \n";
+    std::cout << "Ziffern von a (123): ";
+    for (int i = 0; i < 5; ++i) {
+        std::cout << (int)a.get_digit(i) << " ";
+    }
+    std::cout << " (erwartet: 3 2 1 0 0)\n";
+
+    return 0;
+}
 
 
 
