@@ -1,4 +1,5 @@
 #include <iostream> 
+#include <ostream>
 
 class int20 {
     private: 
@@ -11,8 +12,8 @@ class int20 {
         int20& operator=(const int20& b); 
         int20 operator+(const int20& b);
         int20& operator+=(const int20& b);  
-        bool operator < (const int20& b) const; 
-        void print(); 
+        bool operator < (const int20& b) const;  
+        void print(std::ostream& os); 
         unsigned char get_digit(int pos) const; 
 
 };

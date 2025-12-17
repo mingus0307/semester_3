@@ -1,5 +1,6 @@
 #include <cstring>
 #include <iostream>
+#include <ostream>
 #include <string.h>
 #include "int20.h"
  
@@ -66,18 +67,18 @@ bool int20::operator<(const int20& b) const {
     return false; 
 }
 
-void  int20::print(){
 
+void int20::print(std::ostream& os){
+    bool lead = true; 
     for (int i = 0; i < 20; i++){
-        if(this->zahl[i] == '0'){
+        if(this->zahl[i] == '0' && lead == true){
             continue;
         }
-
-        std::cout << this->zahl[i]; 
+        lead = false; 
+        os << this->zahl[i]; 
     }
 
-    std::cout << std::endl; 
-
+    os << std::endl; 
 }
 
 int main() {
@@ -87,35 +88,35 @@ int main() {
     int20 b("999");
     int20 c("00000000000000000001");
 
-    a.print(); std::cout << "  (erwartet: 000...123)\n";
-    b.print(); std::cout << "  (erwartet: 000...999)\n";
-    c.print(); std::cout << "  (erwartet: 000...001)\n\n";
+    a.print(std::cout); std::cout << "  (erwartet: 000...123)\n";
+    b.print(std::cout); std::cout << "  (erwartet: 000...999)\n";
+    c.print(std::cout); std::cout << "  (erwartet: 000...001)\n\n";
 
     std::cout << "Copy-Konstruktor \n";
     int20 d(a);
-    d.print(); std::cout << "  (Kopie von a)\n\n";
+    d.print(std::cout); std::cout << "  (Kopie von a)\n\n";
 
     std::cout << " Zuweisungsoperator\n";
     int20 e("0");
     e = b;
-    e.print(); std::cout << "  (nach e = b)\n\n";
+    e.print(std::cout); std::cout << "  (nach e = b)\n\n";
 
     std::cout << " operator+ \n";
     int20 sum1 = a + c;
-    a.print(); std::cout << " + ";
-    c.print(); std::cout << " = ";
-    sum1.print(); std::cout << "  (erwartet: 124)\n\n";
+    a.print(std::cout); std::cout << " + ";
+    c.print(std::cout); std::cout << " = ";
+    sum1.print(std::cout); std::cout << "  (erwartet: 124)\n\n";
 
     std::cout << " operator+= \n";
     int20 sum2("500");
     sum2 += a;
-    sum2.print(); std::cout << "  (500 += 123 → 623)\n\n";
+    sum2.print(std::cout); std::cout << "  (500 += 123 → 623)\n\n";
 
     std::cout << " Übertrag-Test \n";
     int20 big1("99999999999999999999");
     int20 big2("1");
     int20 bigSum = big1 + big2;
-    bigSum.print();
+    bigSum.print(std::cout);
     std::cout << "  (Überlauf wird ignoriert)\n\n";
 
     std::cout << " Vergleich operator< \n";
