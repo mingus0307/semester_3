@@ -67,8 +67,15 @@ bool int20::operator<(const int20& b) const {
     return false; 
 }
 
+std::ostream& operator<<(std::ostream& os, const int20& a){
+    os << "(";  
+    a.print(os); 
+    os << ")"; 
+    return os; 
+}
 
-void int20::print(std::ostream& os){
+
+void int20::print(std::ostream& os) const{
     bool lead = true; 
     for (int i = 0; i < 20; i++){
         if(this->zahl[i] == '0' && lead == true){
@@ -78,7 +85,7 @@ void int20::print(std::ostream& os){
         os << this->zahl[i]; 
     }
 
-    os << std::endl; 
+    
 }
 
 int main() {
@@ -130,6 +137,13 @@ int main() {
         std::cout << (int)a.get_digit(i) << " ";
     }
     std::cout << " (erwartet: 3 2 1 0 0)\n";
+
+    std::cout << "___ operator << ___\n";
+    std::cout << a << "\n";
+    std::cout << b << "\n";
+    std::cout << sum1 << "\n";
+
+ 
 
     return 0;
 }
