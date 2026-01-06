@@ -1,8 +1,8 @@
 class Teilnehmer{
     public: 
-        int pos; 
-    private: 
+        int pos;  
+        Teilnehmer(int pos);
         void setPos(int p); 
         int getPos() const; 
-        virtual void weiter() const;
+        virtual void weiter();
 }; 

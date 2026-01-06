@@ -9,15 +9,15 @@ int CartItem::getnNextID(){
     return last_id; 
 }
 
-int CartItem::getID(){
+int CartItem::getID()const{
     return id; 
 }
 
-int CartItem::getAnzahl(){
+int CartItem::getAnzahl() const {
     return anz; 
 }
 
-float CartItem::getPreisProEinheit(){
+float CartItem::getPreisProEinheit() const{
     return preisProEinheit; 
 }
 
@@ -64,7 +64,7 @@ CartItem& CartItem::operator=(const CartItem& c){
 
 }
 
-float CartItem::getCost(){
+float CartItem::getCost() const {
     return anz * preisProEinheit; 
 }
 

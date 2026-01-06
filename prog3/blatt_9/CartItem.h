@@ -12,12 +12,12 @@ class CartItem {
         CartItem(const std::string& name, int anz, float preisProEinheit);
         CartItem(const CartItem& c); 
         CartItem& operator=(const CartItem& c); 
-        float getCost(); 
+        float getCost() const; 
 
         const std::string& getName(); 
-        int getAnzahl();
-        float getPreisProEinheit(); 
-        int getID(); 
+        int getAnzahl() const;
+        float getPreisProEinheit() const; 
+        int getID() const; 
 
         void setName(const std::string& name); 
         void setAnzahl(int anz); 
