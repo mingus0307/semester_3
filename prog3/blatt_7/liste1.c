@@ -19,6 +19,37 @@ void durchlaufen(struct knoten* kopf) {
     printf("\n");
 }
 
+void verketten(struct knoten** kopf1Ptr, struct knoten* kopf2){
+  if(kopf1Ptr == NULL){return;}
+  if(kopf2 == NULL){return;}
+
+  if(*kopf1Ptr == NULL){
+    *kopf1Ptr = kopf2; 
+  }
+
+  struct knoten* laufzeiger = *kopf1Ptr;
+  
+  while(laufzeiger->next != NULL){
+    laufzeiger = laufzeiger->next;
+  }
+  laufzeiger->next = kopf2; 
+
+}
+
+void anwenden(struct knoten* kopf, void (*f)(int)){
+  struct knoten* laufzeiger = kopf; 
+
+  while(laufzeiger != NULL){
+
+    f(laufzeiger->wert); 
+    laufzeiger = laufzeiger->next; 
+  }
+}
+
+void f(int n){
+  n += 1;
+}
+
 
 
 struct knoten* suchen(struct knoten* kopf, int gesuchter_wert) {

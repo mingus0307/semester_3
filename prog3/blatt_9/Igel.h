@@ -2,7 +2,9 @@
 
 class Igel : public Teilnehmer {
 
-    private: 
-        Igel(super());
-        virtual void weiter() override;  
+
+    public:
+        virtual void weiter() override; 
+        virtual void print() override;
+        Igel() : Teilnehmer(){} 
 };
